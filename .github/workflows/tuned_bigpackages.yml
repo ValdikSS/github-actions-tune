@@ -65,5 +65,5 @@ jobs:
       run: |
         wget -O vscode.deb 'https://go.microsoft.com/fwlink/?LinkID=760868'
         wget -O discord.deb 'https://discord.com/api/download?platform=linux&format=deb'
-    - name: Install skype, vscode, discord
+    - name: Install vscode, discord
       run: sudo gdebi --non-interactive ./vscode.deb ./discord.deb
