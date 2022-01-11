@@ -33,7 +33,7 @@ jobs:
         wget -O vscode.deb 'https://go.microsoft.com/fwlink/?LinkID=760868'
         wget -O discord.deb 'https://discord.com/api/download?platform=linux&format=deb'
     - name: Install skype, vscode, discord
-      run: sudo gdebi -y ./skype.deb ./vscode.deb ./discord.deb
+      run: sudo gdebi --non-interactive ./skype.deb ./vscode.deb ./discord.deb
 
 
   dpkg-pixz:
@@ -68,4 +68,4 @@ jobs:
         wget -O vscode.deb 'https://go.microsoft.com/fwlink/?LinkID=760868'
         wget -O discord.deb 'https://discord.com/api/download?platform=linux&format=deb'
     - name: Install skype, vscode, discord
-      run: sudo gdebi -y ./skype.deb ./vscode.deb ./discord.deb
+      run: sudo gdebi --non-interactive ./skype.deb ./vscode.deb ./discord.deb
