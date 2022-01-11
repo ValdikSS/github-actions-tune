@@ -27,7 +27,7 @@ jobs:
         echo 'exec eatmydata /usr/bin/apt $@' | sudo tee /usr/local/bin/apt && sudo chmod +x /usr/local/bin/apt
         echo 'exec eatmydata /usr/bin/apt-get $@' | sudo tee /usr/local/bin/apt-get && sudo chmod +x /usr/local/bin/apt-get
     - name: Install pixz and dpkg-pixz
-      run: sudo dpkg -i dist/*.deb
+      run: sudo dpkg -i dist/pixz_*.deb dist/dpkg_*.deb
     - name: Update apt sources
       run: sudo apt-get update -y
     - name: Install libguestfs-tools
