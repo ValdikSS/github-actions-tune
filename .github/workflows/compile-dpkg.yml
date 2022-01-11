@@ -18,8 +18,10 @@ jobs:
         echo 'deb-src http://azure.archive.ubuntu.com/ubuntu/ focal main' | sudo tee /etc/apt/sources.list.d/deb-src.list
         echo 'deb-src http://security.ubuntu.com/ubuntu focal-security main' | sudo tee -a /etc/apt/sources.list.d/deb-src.list
         sudo apt update
-        sudo apt install build-essential dpkg-dev pixz
-        sudo apt build-dep dpkg
+        sudo eatmydata apt install -y build-essential dpkg-dev pixz
+        sudo eatmydata apt build-dep -y dpkg
+    - name: Compile dpkg-pixz
+      run: |
         mkdir build && cd build
         apt source dpkg
         cd dpkg-*
@@ -28,5 +30,4 @@ jobs:
     - name: Upload output file
       uses: actions/upload-artifact@v2
       with:
-          path: |
-            build/dpkg-*/dpkg_*.deb
+        path: build/**/dpkg_*.deb
