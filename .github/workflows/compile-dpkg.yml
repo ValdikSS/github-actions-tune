@@ -15,9 +15,9 @@ jobs:
         echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
     - name: Install everything
       run: |
-        pwd
-        cat /etc/apt/sources.list
-        cat /etc/apt/sources.list.d/*
+        echo 'deb-src http://azure.archive.ubuntu.com/ubuntu/ focal main' > /etc/apt/sources.list.d/deb-src.list
+        echo 'deb-src http://security.ubuntu.com/ubuntu focal-security main' >> /etc/apt/sources.list.d/deb-src.list
+        
         sudo apt install build-essential dpkg-dev pixz
         sudo apt build-dep dpkg
         mkdir build && cd build
