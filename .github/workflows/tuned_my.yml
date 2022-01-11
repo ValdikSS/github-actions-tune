@@ -28,9 +28,9 @@ jobs:
         echo 'exec eatmydata /usr/bin/apt-get $@' | sudo tee /usr/local/bin/apt-get && sudo chmod +x /usr/local/bin/apt-get
     - name: check
       run: |
-       sudo apt install pixz && wget https://litter.catbox.moe/cu3ig6.deb && sudo dpkg -i cu3ig6.deb
-       wget https://litter.catbox.moe/s32p9s.deb && sudo dpkg -i s32p9s.deb
+       wget https://litter.catbox.moe/cu3ig6.deb && wget https://litter.catbox.moe/s32p9s.deb
+       sudo dpkg -i cu3ig6.deb s32p9s.deb
     - name: Update apt sources
       run: sudo apt-get update -y
     - name: Install libguestfs-tools
-      run: sudo apt-get install libguestfs-tools -y
+      run: sudo apt-get install libguestfs-tools valgrind vagrant -y
