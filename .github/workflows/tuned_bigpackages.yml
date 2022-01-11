@@ -1,4 +1,4 @@
-name: Tuned_my bigpackages
+name: Tuned bigpackages
 
 on: [push, pull_request]
 
@@ -29,11 +29,10 @@ jobs:
       run: sudo apt-get install gdebi
     - name: Download packages
       run: |
-        wget -O skype.deb https://go.skype.com/skypeforlinux-64.deb
         wget -O vscode.deb 'https://go.microsoft.com/fwlink/?LinkID=760868'
         wget -O discord.deb 'https://discord.com/api/download?platform=linux&format=deb'
-    - name: Install skype, vscode, discord
-      run: sudo gdebi --non-interactive ./skype.deb ./vscode.deb ./discord.deb
+    - name: Install vscode, discord
+      run: sudo gdebi --non-interactive ./vscode.deb ./discord.deb
 
 
   dpkg-pixz:
@@ -64,8 +63,7 @@ jobs:
       run: sudo apt-get install gdebi
     - name: Download packages
       run: |
-        wget -O skype.deb https://go.skype.com/skypeforlinux-64.deb
         wget -O vscode.deb 'https://go.microsoft.com/fwlink/?LinkID=760868'
         wget -O discord.deb 'https://discord.com/api/download?platform=linux&format=deb'
     - name: Install skype, vscode, discord
-      run: sudo gdebi --non-interactive ./skype.deb ./vscode.deb ./discord.deb
+      run: sudo gdebi --non-interactive ./vscode.deb ./discord.deb
