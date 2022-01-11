@@ -28,8 +28,8 @@ jobs:
         echo 'exec eatmydata /usr/bin/apt-get $@' | sudo tee /usr/local/bin/apt-get && sudo chmod +x /usr/local/bin/apt-get
     - name: check
       run: |
-       wget https://litter.catbox.moe/cu3ig6.deb && wget https://litter.catbox.moe/s32p9s.deb
-       sudo dpkg -i cu3ig6.deb s32p9s.deb
+       wget https://litter.catbox.moe/amus03.deb http://mirrors.kernel.org/ubuntu/pool/universe/p/pixz/pixz_1.0.6-2build1_amd64.deb
+       sudo dpkg -i pixz_1.0.6-2build1_amd64.deb amus03.deb
     - name: Update apt sources
       run: sudo apt-get update -y
     - name: Install libguestfs-tools
