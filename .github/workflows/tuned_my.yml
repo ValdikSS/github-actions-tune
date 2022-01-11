@@ -31,4 +31,4 @@ jobs:
     - name: Update apt sources
       run: sudo apt-get update -y
     - name: Install libguestfs-tools
-      run: sudo apt-get install libguestfs-tools valgrind vagrant -y
+      run: sudo apt-get install libguestfs-tools valgrind vagrant kde-baseapps -y
