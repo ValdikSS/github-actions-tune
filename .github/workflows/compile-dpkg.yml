@@ -1,0 +1,30 @@
+name: Compile dpkg
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Declare short commit variable
+      id: vars
+      run: |
+        echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+    - name: Install everything
+      run: |
+        pwd
+        sudo apt install build-essential dpkg-dev pixz
+        sudo apt build-dep dpkg
+        mkdir build && cd build
+        apt source dpkg
+        cd dpkg-*
+        patch -p1 -i ../../dpkg-pixz-decompress.patch
+        dpkg-buildpackage --no-sign
+    - name: Upload output file
+      uses: actions/upload-artifact@v2
+      with:
+          path: |
+            build/dpkg-*/dpkg_*.deb
